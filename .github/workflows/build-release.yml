@@ -65,9 +65,9 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           TAG_NAME: ${{ inputs.release-tag }}
         run: |
-          gh release create "$TAG_NAME" --draft --notes "$(./.github/make-release-body.sh)"
-          gh release upload "$TAG_NAME" "$OUT_FILENAME"
-          gh release edit "$TAG_NAME" --draft=false
+          gh release create "$TAG_NAME-1" --draft --notes "$(./.github/make-release-body.sh)"
+          gh release upload "$TAG_NAME-1" "$OUT_FILENAME"
+          gh release edit "$TAG_NAME-1" --draft=false
       - name: Update update.xml
         env:
           APP_ID: ${{ steps.crxid.outputs.crx_id }}
